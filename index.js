@@ -1,21 +1,34 @@
-//Fetch Data for Patient infor
+//Fetch Data for Patient information
 const displayPatients = () => {
     fetch('http://localhost:3000/patients')
     .then(response=>response.json())
     .then(patients=>{
       patients.forEach(patient=>{
+        const patientTab = document.createElement('li')
+        
         const img = document.createElement('img')
         img.src = patient.image
         img.alt = patient.name
         'Where to Append'.append(img)
+
+        const patientName = document.createElement('h3')
+        patientName.textContent = patient.name
+
+        patientTab.appendChild(img)
+        patientTab.appendChild(patientName)
   
   
       })
     })
   };
 
-  //Globals 
+  //Global variables
+  const patient = document.getElementById("#patients")
+  const patientInfo = document.getElementById("#patient-info")
+  const currentPatient = document.getElementById("#current-patient")
+  const callList = document.getElementById("#call-list")
 
+      console.log('hello')
 
   //Access and display list of patients
   //Click event to display current patient
@@ -26,3 +39,31 @@ const displayPatients = () => {
   //Create button for pulling profile to add to call list
   //Create a form to make an appointment
   
+
+
+  //Yeji code for adding new patients
+  const form = document.querySelector(".patient-form")
+  console.log(form)
+  form.addEventListener('submit',(event)=>{
+    event.preventDefault()
+    const newPatient={
+      name:event.target['name'].value,
+      phone_number:event.target['phone'].value,
+      birthday:event.target['birthday'].value,
+      last_visited:event.target['last-visit'].value,
+      message:event.target['message'].value,
+      appointment:"",
+      image_url:""
+    }}) //temporarily added '})' to finish code here
+    //code below is erroring out for me
+    //call function for makeing list of patients (newPAtient)
+  //   fetch('http://localhost:3000/patients',%7B
+  //     method:'POST',
+  //     headers:{
+  //       "Content-Type":'application/json'
+  //     },
+  //     body: JSON.stringify(newPatient)
+  //   })
+  //   .then(resp=>resp.json())
+  //   .then((data)=>console.log(data))
+  // })
