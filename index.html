@@ -23,21 +23,6 @@
     </ul>
 </section>
 
-<section id="current-patient">
-    <h2>Viewing Current Patient</h2>
-    <p>Patients Profile</p>
-
-    <ul>
-        <div id="patient-display">
-            <h4 id="patient-name" class="name">Insert Name Here</h4>
-            <h6 id="patient-phone" class="phone">Phone Number</h6>
-            <h6 id="patient-birthday" class="birthday">Birthday</h6>
-            <h6 id="patient-last-visit" class="last-visit">Last Visit</h6>
-            <h6 id="patient-message" class="message">Message</h6>
-            <img id="xray-image" class="image" src="./assets/image-placeholder.jpg" alt="Insert Name Here" />
-          </div> 
-    </ul>
-</section>
 
 </section>
 
@@ -48,21 +33,57 @@
     <form class="patient-form">
         <label for="name">Full Name:</label>
         <input type="text" id="name" name="name" required>
-
+        
         <label for="phone">Phone Number:</label>
         <input type="text" id="phone" name="phone" required>
-
+        
         <label for="birthday">Birthdays:</label>
         <input type="birthday" id="birthday" name="birthday" required>
-
+        
         <label for="last-visit">Last Visit Date:</label>
         <input type="date" id="last-visit" name="last-visit" required>
-
+        
         <label for="message">Additional Notes:</label>
         <textarea id="message" name="message" rows="4"></textarea>
+        
+        <button type="submit">New Patient</button>
+    </form>
+
+    <section id="current-patient">
+        <h2>Viewing Current Patient</h2>
+        <p>Patients Profile</p>
+    
+        <ul>
+            <div id="patient-display">
+                <img id="xray-image" class="image" src="./assets/image-placeholder.jpg" alt="Insert Picture Name Here" />
+                <h4 id="patient-name" class="name">Insert Name Here</h4>
+                <h6 id="patient-phone" class="phone">Phone Number</h6>
+                <h6 id="patient-birthday" class="birthday">Birthday</h6>
+                <h6 id="patient-last-visit" class="last-visit">Last Visit</h6>
+                <h6 id="patient-message" class="message">Message</h6>
+              </div> 
+        </ul>
+    </section>
+
+    <form class="patient-appointment">
+        <label for="next-visit">Next Visit Date:</label>
+        <input type="date" id="next-visit" name="next-visit" required>
 
         <button type="submit">Book Appointment</button>
     </form>
+
+    <section id="call-list">
+        <h2>Patients to Call</h2>
+        <button type="submit">Add to Call List</button>
+        <p>Call these patients.</p>
+        <ul>
+            <li></li>
+        </ul>
+    </section>
+
+
+
+
 </section>
 
 <footer>
