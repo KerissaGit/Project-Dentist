@@ -27,9 +27,8 @@ const displayPatients = () => {
         img.alt = `${patient.name}`
 
         const patientName = document.createElement('h3')
-        patientName.textContent = patient.name
 
-        patientList.append(patientTab, img, patientName)
+        patientList.append(patientTab, patientName)
   
       })
     })
