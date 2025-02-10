@@ -3,8 +3,14 @@ const displayPatients = () => {
     fetch('http://localhost:3000/patients')
     .then(response=>response.json())
     .then(patients=>{
+      const data = patients.data
+      const patientList = document.querySelector('#patients ul')
+
       patients.forEach(patient=>{
+
         const patientTab = document.createElement('li')
+        patientTab.textContent = patient.name
+        patientTab.dataset.patient = patient.id
         
         const img = document.createElement('img')
         img.src = patient.image
@@ -41,6 +47,13 @@ const displayPatients = () => {
   
 
 
+
+
+
+
+
+
+  
   //Yeji code for adding new patients
   const form = document.querySelector(".patient-form")
   console.log(form)
