@@ -1,40 +1,52 @@
+//Global variables
+const BASE_URL = "http://localhost:3000/patients"
+const patient = document.getElementById("#patients")
+const patientInfo = document.getElementById("#patient-info")
+const currentPatient = document.getElementById("#current-patient")
+const callList = document.getElementById("#call-list")
+
+
+
+
 //Fetch Data for Patient information
 const displayPatients = () => {
-    fetch('http://localhost:3000/patients')
+    fetch(BASE_URL)
     .then(response=>response.json())
     .then(patients=>{
       const data = patients.data
       const patientList = document.querySelector('#patients ul')
 
-      patients.forEach(patient=>{
+      patients.forEach(patient => {
 
         const patientTab = document.createElement('li')
-        patientTab.textContent = patient.name
+        patientTab.textContent = `${patient.name}`
         patientTab.dataset.patient = patient.id
         
         const img = document.createElement('img')
         img.src = patient.image
-        img.alt = patient.name
-        'Where to Append'.append(img)
+        img.alt = `${patient.name}`
 
         const patientName = document.createElement('h3')
         patientName.textContent = patient.name
 
-        patientTab.appendChild(img)
-        patientTab.appendChild(patientName)
-  
+        patientList.append(patientTab, img, patientName)
   
       })
     })
   };
 
-  //Global variables
-  const patient = document.getElementById("#patients")
-  const patientInfo = document.getElementById("#patient-info")
-  const currentPatient = document.getElementById("#current-patient")
-  const callList = document.getElementById("#call-list")
+  displayPatients();
 
-      console.log('hello')
+  function getPatientsData() {
+    fetch(BASE_URL)
+    .then((resp) => resp.json())
+    .then((patients) => patients.forEach(displayPatients))
+    
+  }
+
+
+
+
 
   //Access and display list of patients
   //Click event to display current patient

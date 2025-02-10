@@ -1,3 +1,4 @@
+/* 
 body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
@@ -16,15 +17,16 @@ header {
 header h1 {
     margin: 0;
     font-size: 2.5em;
+    text-align: center;
 }
 
 nav {
     background-color: #333;
-    display: flex;
-    justify-content: center; /* Centers the nav links */
+    overflow: hidden;
 }
 
 nav a {
+    float: left;
     display: block;
     color: white;
     text-align: center;
@@ -37,53 +39,22 @@ nav a:hover {
     color: black;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    flex-wrap: wrap;
+section {
+    padding: 40px;
 }
 
-aside, main {
+.contact-info {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.contact-info div {
     padding: 20px;
-    background-color: white;
-    border-radius: 8px;
 }
 
-.left, .right {
-    background-color: #e0f7fa;
-    width: 30%;
-}
-
-.center {
-    background-color: #ffffff;
-    width: 40%;
-}
-
-#patient-info {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 100%;
-}
-
-.patient-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.patient-form label {
-    font-weight: bold;
-}
-
-.patient-form input, 
-.patient-form textarea, 
-.patient-form button {
-    padding: 10px;
-    margin: 5px 0;
-    width: 100%;
-    box-sizing: border-box;
+.contact-info h3 {
+    margin: 10px 0;
 }
 
 .appointment-form {
@@ -123,6 +94,60 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+} */
+
+body, h1, h2, h3, h4, h6, p, ul, li, form {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+header p {
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+aside, main {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.left, .right {
+    background-color: #e0f7fa;
+    
+}
+
+.center {
+    background-color: #ffffff;
+}
+
+section h2 {
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
 }
 
 footer h3 {
@@ -132,3 +157,4 @@ footer h3 {
 footer p {
     font-size: 14px;
 }
+
