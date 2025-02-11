@@ -1,120 +1,28 @@
-/* 
-body {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f7fa;
-}
-
-header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    text-align: center;
-}
-
-nav {
-    background-color: #333;
-    overflow: hidden;
-}
-
-nav a {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-section {
-    padding: 40px;
-}
-
-.contact-info {
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-}
-
-.contact-info div {
-    padding: 20px;
-}
-
-.contact-info h3 {
-    margin: 10px 0;
-}
-
-.appointment-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.appointment-form input,
-.appointment-form select,
-.appointment-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.appointment-form button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.appointment-form button:hover {
-    background-color: #45a049;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 10px;
-} */
 
 body, h1, h2, h3, h4, h6, p, ul, li, form {
     margin: 0;
     padding: 0;
 }
 body {
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, sans-serif;
     background-color: #f4f4f4;
     padding: 20px;
 }
 header {
     text-align: center;
     margin-bottom: 30px;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
 }
 header h1 {
-    font-size: 36px;
+    font-size: 30px;
     margin-bottom: 10px;
+    text-align: center;
 }
 header p {
     font-size: 18px;
+    text-align: center;
 }
 
 .container {
@@ -127,6 +35,7 @@ aside, main {
     padding: 20px;
     background-color: white;
     border-radius: 8px;
+    column-width: auto;
 }
 
 .left, .right {
@@ -136,10 +45,13 @@ aside, main {
 
 .center {
     background-color: #ffffff;
+    text-align: center;
 }
 
 section h2 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
 }
 
 footer {
@@ -158,3 +70,131 @@ footer p {
     font-size: 14px;
 }
 
+/* Tooth icons for bullet points */
+#patients li {
+    list-style: none; 
+    position: relative; 
+    padding-left: 20px; 
+}
+
+#patients li::before {
+    content: '\f5c9';
+    font-family: 'Font Awesome 5 Free'; 
+    font-weight: 900; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+/* Phone icons for bullet points */
+#call-list {
+    list-style: none; 
+}
+
+#call-list input, 
+#call-list textarea, 
+#call-list button {
+    display: block; 
+    width: 100%;
+    padding: 5px; 
+    margin-bottom: 10px; 
+}
+
+#call-list button {
+    width: auto; 
+    padding: 12px 20px; 
+    margin-top: 10px; 
+    cursor: pointer;
+}
+
+#call-list textarea {
+    resize: vertical;
+}
+
+#call-list li {
+    position: relative; 
+    padding-left: 20px;
+}
+
+#call-list li::before {
+    content: '\f095';
+    font-family: 'Font Awesome 5 Free'; 
+    font-weight: 900; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+#patient-info {
+    display: block;
+    width: 100%;
+    width: 180px;
+    margin-bottom: 20px;
+    padding: 10px;
+
+}
+
+/*  Add Patient Profile form */
+.patient-form {
+    display: grid;
+    grid-template-columns: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.patient-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.patient-form input, 
+.patient-form textarea, 
+.patient-form button {
+    display: block; 
+    width: 100%;
+    padding: 5px; 
+    margin-bottom: 10px; 
+}
+
+.patient-form button {
+    width: auto; 
+    padding: 12px 20px; 
+    margin-top: 10px; 
+    cursor: pointer;
+}
+
+.patient-form textarea {
+    resize: vertical;
+}
+
+ /* Booking next appointment form */
+
+.patient-appointment label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.patient-appointment input, 
+.patient-appointment textarea, 
+.patient-appointment button {
+    display: block; 
+    width: 100%;
+    padding: 5px; 
+    margin-bottom: 10px; 
+}
+
+.patient-appointment button {
+    width: auto; 
+    padding: 12px 20px; 
+    margin-top: 10px; 
+    cursor: pointer;
+}
+
+.patient-appointment textarea {
+    resize: vertical;
+}
+
+
+/* Call list */
