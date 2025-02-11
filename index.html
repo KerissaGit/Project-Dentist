@@ -75,9 +75,9 @@
             </ul>
         </section>
 
-        <form class="patient-appointment">
+        <form id="form-{{patient.id}}" form class="patient-appointment">
             <label for="next-visit">Next Visit Date:</label>
-            <input type="date" id="next-visit" name="next-visit" required>
+            <input type="date" id="next-visit" name="next-visit" placeholder="Enter next visit date" required>
 
             <button type="submit">Book Appointment 📞</button>
         </form>
@@ -88,7 +88,7 @@
 
         <section id="call-list">
             <h2>Patients to Call</h2>
-            <button type="button">Add to Call List</button>
+            <button type="button" id="call-button">Add to Call List</button>
             <p>Call these patients.</p>
             <ul>
                 <li></li>
@@ -105,11 +105,11 @@
         <div>
             <h3>Contact Information</h3>
             <p>Address: 123 Smile Ave, Dental City</p>
-            <p>Phone: +123 456 789</p>
+            <p>Phone: +555 867 5309</p>
             <p>Email: info@dentistclinic.com</p>
         </div>
         <div>
-            <h3>Opening Hours</h3>
+            <h3>Open Hours</h3>
             <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
             <p>Saturday: 10:00 AM - 2:00 PM</p>
             <p>Sunday: Closed</p>
