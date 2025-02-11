@@ -71,13 +71,18 @@
                     <h6 id="patient-birthday" class="birthday">Birthday</h6>
                     <h6 id="patient-last-visit" class="last-visit">Last Visit</h6>
                     <h6 id="patient-message" class="message">Message</h6>
+                    <h6 id="patient-appointment" class="appointment">appointment</h6>
+                   
+
                 </div> 
             </ul>
         </section>
 
-        <form class="patient-appointment">
+        <form id="form-{{patient.id}}" class="patient-appointment">
+            
             <label for="next-visit">Next Visit Date:</label>
-            <input type="date" id="next-visit" name="next-visit" required>
+            <input type="date" name="next-visit" id="next-visit" placeholder="Enter next visit date" />
+            
 
             <button type="submit">Book Appointment</button>
         </form>
