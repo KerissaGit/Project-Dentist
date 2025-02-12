@@ -97,7 +97,7 @@ const displayPatients = () => {
   displayPatients();
   
   //Adding new patients
-  const form = document.querySelector("patient-form")
+  const form = document.querySelector(".patient-form")
   form.addEventListener('submit',(event)=>{
     event.preventDefault()
     const newPatient={
@@ -166,27 +166,27 @@ const displayPatients = () => {
 
 
 
-// Creating a call list
-let calls = [];
-//Click Event Listener for call button
-const callButton = document.getElementById('call-button')
-//Adds and removes a call and limits to only 1
-function callClick() {
-  const name = document.querySelector("patient-name")
-    if (!calls.includes(`${patient.name}`)){
-      const copyName = name.cloneNode(true)
-      copyName.addEventListener('click', function(){
-        copyName.remove()
-        calls = calls.filter(function(calledPatient){
-          return calledPatient !== copyName.name
-        })
-      });
-      callList.appendChild(copyName)
-      calls.push(copyName.name)
-    };
-}
+// // Creating a call list
+// let calls = [];
+// //Click Event Listener for call button
+// const callButton = document.getElementById('call-button')
+// //Adds and removes a call and limits to only 1
+// function callClick() {
+//   const name = document.querySelector("patient-name")
+//     if (!calls.includes(`${patient.name}`)){
+//       const copyName = name.cloneNode(true)
+//       copyName.addEventListener('click', function(){
+//         copyName.remove()
+//         calls = calls.filter(function(calledPatient){
+//           return calledPatient !== copyName.name
+//         })
+//       });
+//       callList.appendChild(copyName)
+//       calls.push(copyName.name)
+//     };
+// }
 
-callClick();
+// callClick();
   
   
   
