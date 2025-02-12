@@ -44,11 +44,20 @@ const openProfile = (patient) =>{
         callListnames.textContent = `${patient.name}`
         if (!array.includes(patient.name)){
         callList.append(callListnames)
-        array.push(patient.name)
-      
+        array.push(patient.name) 
       }     
 
+      const deleteButton = document.createElement('button')
+      deleteButton.textContent = ' 🗑️ '
+      callListnames.appendChild(deleteButton)
+      deleteButton.addEventListener('click', ()=>deletebuttonFunc(callListnames)
+     )
+
   }
+
+  function deletebuttonFunc(callListnames){
+    callListnames.remove()
+}
     
   function handleSubmit(e){
     e.preventDefault()
