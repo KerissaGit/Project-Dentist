@@ -22,8 +22,6 @@ const openProfile = (patient) =>{
   lastvisit.textContent=patient.last_visited
   const message = document.querySelector("#patient-message")
   message.textContent=patient.message
-  const appointment1 = document.querySelector("#patient-appointment")
-  appointment1.textContent = patient.appointment
   const form = document.querySelector(".patient-appointment")
 
   form.reset()
@@ -89,6 +87,7 @@ const displayPatients = () => {
         patientTab.addEventListener("click",()=>openProfile(patient))
         patientList.append(patientTab)
         
+        
 
       })
     })
@@ -128,7 +127,9 @@ const displayPatients = () => {
 
   
   //Yeji code for adding new patients
+  function addnewpatient(){
   const form = document.querySelector(".patient-form")
+  const patientList1 = document.querySelector('#patients ul')
   console.log(form)
   form.addEventListener('submit',(event)=>{
     event.preventDefault()
@@ -140,17 +141,29 @@ const displayPatients = () => {
       message:event.target['message'].value,
       appointment:"",
       image_url:""
-    }}) 
-    //temporarily added '})' to finish code here
-    //code below is erroring out for me
-    //call function for makeing list of patients (newPAtient)
-  //   fetch('http://localhost:3000/patients',%7B
-  //     method:'POST',
-  //     headers:{
-  //       "Content-Type":'application/json'
-  //     },
-  //     body: JSON.stringify(newPatient)
-  //   })
-  //   .then(resp=>resp.json())
-  //   .then((data)=>console.log(data))
-  // })
+    }
+
+      fetch('http://localhost:3000/patients', {
+      method:'POST',
+      headers:{
+         "Content-Type":'application/json'
+       },
+       body: JSON.stringify(newPatient)
+       })
+     .then(resp=>resp.json())
+     .then((data)=>{
+      console.log(data)
+      const newpatientitem = document.createElement('li')
+     newpatientitem.textContent = `${data.name}`
+     patientList1.append(newpatientitem)
+    
+  })
+
+     
+
+
+        })
+      }
+     
+      addnewpatient()
+   
