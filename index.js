@@ -1,3 +1,13 @@
+//Access and display list of patients
+//Click event to display current patient
+//Add new patients
+//Create button to append new patients to current patient list
+//Submit form for new patient
+//Display patient profile in center of page
+//Create button for pulling profile to add to call list
+//Create a form to make an appointment
+
+
 //Global variables
 const BASE_URL = "http://localhost:3000/patients"
 const patient = document.getElementById("#patients")
@@ -15,13 +25,13 @@ const openProfile = (patient) =>{
   const name = document.querySelector("#patient-name")
   name.textContent = patient.name
   const phone = document.querySelector("#patient-phone")
-  phone.textContent = patient.phone_number
+  phone.textContent = 'Phone Number: ' + patient.phone_number
   const birthday = document.querySelector("#patient-birthday")
-  birthday.textContent=patient.birthday
+  birthday.textContent= 'Birthday: ' + patient.birthday
   const lastvisit = document.querySelector("#patient-last-visit")
-  lastvisit.textContent=patient.last_visited
+  lastvisit.textContent= 'Last Date Visited: ' + patient.last_visited
   const message = document.querySelector("#patient-message")
-  message.textContent=patient.message
+  message.textContent= 'Special Note: ' + patient.message
   const form = document.querySelector(".patient-appointment")
 
   form.reset()
@@ -106,53 +116,21 @@ const displayPatients = () => {
         
         patientTab.addEventListener("click",()=>openProfile(patient))
         patientList.append(patientTab)
-        
-        
-
+   
       })
     })
   };
-
-  displayPatients();
-
-  //function getPatientsData() {
-   // fetch(BASE_URL)
-   // .then((resp) => resp.json())
-   // .then((patients) => patients.forEach(displayPatients))
-    
-  //}
-
-
-
-
-
-
-
-  //Access and display list of patients
-  //Click event to display current patient
-  //Add new patients
-  //Create button to append new patients to current patient list
-  //Submit form for new patient
-  //Display patient profile in center of page
-  //Create button for pulling profile to add to call list
-  //Create a form to make an appointment
   
-
-
-
-
-
-
-
+displayPatients();
 
   
-  //Yeji code for adding new patients
+  //Code for adding new patients
   function addnewpatient(){
   const form = document.querySelector(".patient-form")
   const patientList1 = document.querySelector('#patients ul')
   console.log(form)
   form.addEventListener('submit',(event)=>{
-    event.preventDefault()
+    event.preventDefault();
     const newPatient={
       name:event.target['name'].value,
       phone_number:event.target['phone'].value,
@@ -160,10 +138,11 @@ const displayPatients = () => {
       last_visited:event.target['last-visit'].value,
       message:event.target['message'].value,
       appointment:"",
-      image_url:""
+      image_url: "" // Doesnt save img. Tried using event.target['image_url'].src
     }
+    form.reset
 
-      fetch('http://localhost:3000/patients', {
+    fetch('http://localhost:3000/patients', {
       method:'POST',
       headers:{
          "Content-Type":'application/json'
@@ -174,16 +153,12 @@ const displayPatients = () => {
      .then((data)=>{
       console.log(data)
       const newpatientitem = document.createElement('li')
-     newpatientitem.textContent = `${data.name}`
-     patientList1.append(newpatientitem)
+      newpatientitem.textContent = `${data.name}`
+      patientList1.append(newpatientitem)
     
+    })
   })
-
+}
      
-
-
-        })
-      }
-     
-      addnewpatient()
+addnewpatient();
    
