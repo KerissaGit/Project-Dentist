@@ -32,13 +32,27 @@ const openProfile = (patient) =>{
 
   form.reset()
 
+  const button = document.querySelector("#call-button")
+  const callList = document.querySelector('#call-list')
+  let array=[]
 
+
+  button.addEventListener("click", ()=> call(patient))
+
+  function call(patient){
+    const callListnames = document.createElement('li')
+        callListnames.textContent = `${patient.name}`
+        if (!array.includes(patient.name)){
+        callList.append(callListnames)
+        array.push(patient.name)
+      
+      }     
+
+  }
     
   function handleSubmit(e){
     e.preventDefault()
    const newappointment = e.target["next-visit"].value
-  
-  
   
   fetch(`http://localhost:3000/patients/${patientcurrent.id}`,{
     method: `PATCH`,
@@ -55,12 +69,9 @@ const openProfile = (patient) =>{
       document.querySelector("#patient-appointment").textContent = newappointment
     })
     .catch((error) => console.error("Error updating appointment:", error));
-
-
-      
-  
-
+ 
   }
+
 }
 
 
