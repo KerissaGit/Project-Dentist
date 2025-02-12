@@ -26,9 +26,12 @@ function formatDate(dateString) {
   return `${month}-${day}-${year}`
 }
 
+let array=[]
+let lastClickedPatient=null
 
 //Open profile when clicking on patientname on "displayPatients"
 const openProfile = (patient) =>{
+  lastClickedPatient=patient
   patientcurrent=patient
   const image = document.querySelector("#xray-image")
   const name = document.querySelector("#patient-name")
@@ -53,11 +56,18 @@ const openProfile = (patient) =>{
 
 
 // Call list button to add to call list
+  form.reset()
+  form.addEventListener("submit", handleSubmit)
+
+
   const button = document.querySelector("#call-button")
+  const callList = document.querySelector('#call-list')
   let array=[]
 
 
-  button.addEventListener("click", ()=> call(patient))
+
+  button.addEventListener("click", ()=> call(lastClickedPatient))
+
 
   function call(patient){
     const callListnames = document.createElement('li')
@@ -76,8 +86,13 @@ const openProfile = (patient) =>{
   }
 
   function deletebuttonFunc(callListnames){
+    const index = array.indexOf(patient.name)
+    if (index > -1) {
+      array.splice(index, 1)
+    }
     callListnames.remove()
-  }
+
+}
     
   function handleSubmit(e){
     e.preventDefault()
