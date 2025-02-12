@@ -18,26 +18,44 @@ let patientcurrent = null
 let array=[]
 let lastClickedPatient=null
 
+function formatDate(dateString) {
+  const date = new Date(dateString)
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const year = date.getFullYear()
+
+  return `${month}-${day}-${year}`
+}
+
+
 //Open profile when clicking on patientname on "displayPatients"
+
+
+
 const openProfile = (patient) =>{
   lastClickedPatient=patient
   patientcurrent=patient
   const image = document.querySelector("#xray-image")
-  image.src=patient.image_url
-  image.alt=patient.name
   const name = document.querySelector("#patient-name")
-  name.textContent = patient.name
   const phone = document.querySelector("#patient-phone")
-  phone.textContent = 'Phone Number: ' + patient.phone_number
   const birthday = document.querySelector("#patient-birthday")
-  birthday.textContent= 'Birthday: ' + patient.birthday
   const lastvisit = document.querySelector("#patient-last-visit")
-  lastvisit.textContent= 'Last Date Visited: ' + patient.last_visited
   const message = document.querySelector("#patient-message")
-  message.textContent= 'Special Note: ' + patient.message
   const form = document.querySelector(".patient-appointment")
 
-  form.reset()
+  if (patient) {
+    image.src=patient.image_url
+    image.alt=patient.name
+    name.textContent = patient.name
+    phone.textContent = "Phone Number: " + patient.phone_number
+    birthday.textContent= `Birthday:   ${formatDate(patient.birthday)}`
+    lastvisit.textContent= `Last Date Visited:   ${formatDate(patient.last_visited)}`
+    message.textContent= 'Special Note: ' + patient.message
+    form.textContent= `Next Appointment:   ${formatDate(patient.appointment)}`
+  } else {
+    name.textContent = "Select a Patient to View Details"
+  }
+
   form.addEventListener("submit", handleSubmit)
 
 
@@ -67,7 +85,7 @@ const openProfile = (patient) =>{
 
   function deletebuttonFunc(callListnames){
     const index = array.indexOf(patient.name)
-    if (index > -1) {
+    if (index>=0) {
       array.splice(index, 1)
     }
     callListnames.remove()
@@ -143,7 +161,7 @@ displayPatients();
       last_visited:event.target['last-visit'].value,
       message:event.target['message'].value,
       appointment:"",
-      image_url: "" // Doesnt save img. Tried using event.target['image_url'].src
+      image_url:event.target['image'].value // Doesnt save img. Tried using event.target['image_url'].src
     }
     form.reset
 
