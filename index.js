@@ -15,9 +15,12 @@ const patientInfo = document.getElementById("#patient-info")
 const currentPatient = document.getElementById("#current-patient")
 const callList = document.getElementById("#call-list")
 let patientcurrent = null
+let array=[]
+let lastClickedPatient=null
 
 //Open profile when clicking on patientname on "displayPatients"
 const openProfile = (patient) =>{
+  lastClickedPatient=patient
   patientcurrent=patient
   const image = document.querySelector("#xray-image")
   image.src=patient.image_url
@@ -35,20 +38,45 @@ const openProfile = (patient) =>{
   const form = document.querySelector(".patient-appointment")
 
   form.reset()
-
-  form.removeEventListener("submit", handleSubmit)
-
   form.addEventListener("submit", handleSubmit)
 
-  form.reset()
+
+  const button = document.querySelector("#call-button")
+  const callList = document.querySelector('#call-list')
+  
 
 
+  button.addEventListener("click", ()=> call(lastClickedPatient))
+
+
+  function call(patient){
+    const callListnames = document.createElement('li')
+        callListnames.textContent = `${patient.name}`
+        if (!array.includes(patient.name)){
+        callList.append(callListnames)
+        array.push(patient.name) 
+      }     
+
+      const deleteButton = document.createElement('button')
+      deleteButton.textContent = ' 🗑️ '
+      callListnames.appendChild(deleteButton)
+      deleteButton.addEventListener('click', ()=>deletebuttonFunc(callListnames)
+     )
+
+  }
+
+  function deletebuttonFunc(callListnames){
+    const index = array.indexOf(patient.name)
+    if (index > -1) {
+      array.splice(index, 1)
+    }
+    callListnames.remove()
+
+}
     
   function handleSubmit(e){
     e.preventDefault()
    const newappointment = e.target["next-visit"].value
-  
-  
   
   fetch(`http://localhost:3000/patients/${patientcurrent.id}`,{
     method: `PATCH`,
@@ -65,12 +93,9 @@ const openProfile = (patient) =>{
       document.querySelector("#patient-appointment").textContent = newappointment
     })
     .catch((error) => console.error("Error updating appointment:", error));
-
-
-      
-  
-
+ 
   }
+
 }
 
 
