@@ -16,34 +16,44 @@ const currentPatient = document.getElementById("#current-patient")
 const callList = document.getElementById("#call-list")
 let patientcurrent = null
 
+//Function for formating all dates to be m/d/y format
+function formatDate(dateString) {
+  const date = new Date(dateString)
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  const year = date.getFullYear()
+
+  return `${month}-${day}-${year}`
+}
+
+
 //Open profile when clicking on patientname on "displayPatients"
 const openProfile = (patient) =>{
   patientcurrent=patient
   const image = document.querySelector("#xray-image")
-  image.src=patient.image_url
-  image.alt=patient.name
   const name = document.querySelector("#patient-name")
-  name.textContent = patient.name
   const phone = document.querySelector("#patient-phone")
-  phone.textContent = 'Phone Number: ' + patient.phone_number
   const birthday = document.querySelector("#patient-birthday")
-  birthday.textContent= 'Birthday: ' + patient.birthday
   const lastvisit = document.querySelector("#patient-last-visit")
-  lastvisit.textContent= 'Last Date Visited: ' + patient.last_visited
   const message = document.querySelector("#patient-message")
-  message.textContent= 'Special Note: ' + patient.message
   const form = document.querySelector(".patient-appointment")
 
-  form.reset()
+  if (patient) {
+    image.src=patient.image_url
+    image.alt=patient.name
+    name.textContent = patient.name
+    phone.textContent = 'Phone Number: ' + patient.phone_number
+    birthday.textContent= `Birthday:   ${formatDate(patient.birthday)}`
+    lastvisit.textContent= `Last Date Visited:   ${formatDate(patient.last_visited)}`
+    message.textContent= 'Special Note: ' + patient.message
+    form.textContent= `Next Appointment:   ${formatDate(patient.appointment)}`
+  } else {
+    name.textContent = "Select a Patient to View Details"
+  }
 
-  form.removeEventListener("submit", handleSubmit)
 
-  form.addEventListener("submit", handleSubmit)
-
-  form.reset()
-
+// Call list button to add to call list
   const button = document.querySelector("#call-button")
-  const callList = document.querySelector('#call-list')
   let array=[]
 
 
@@ -67,7 +77,7 @@ const openProfile = (patient) =>{
 
   function deletebuttonFunc(callListnames){
     callListnames.remove()
-}
+  }
     
   function handleSubmit(e){
     e.preventDefault()
