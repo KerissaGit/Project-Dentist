@@ -15,9 +15,12 @@ const patientInfo = document.getElementById("#patient-info")
 const currentPatient = document.getElementById("#current-patient")
 const callList = document.getElementById("#call-list")
 let patientcurrent = null
+let array=[]
+let lastClickedPatient=null
 
 //Open profile when clicking on patientname on "displayPatients"
 const openProfile = (patient) =>{
+  lastClickedPatient=patient
   patientcurrent=patient
   const image = document.querySelector("#xray-image")
   image.src=patient.image_url
@@ -35,19 +38,16 @@ const openProfile = (patient) =>{
   const form = document.querySelector(".patient-appointment")
 
   form.reset()
-
-  form.removeEventListener("submit", handleSubmit)
-
   form.addEventListener("submit", handleSubmit)
 
-  form.reset()
 
   const button = document.querySelector("#call-button")
   const callList = document.querySelector('#call-list')
-  let array=[]
+  
 
 
-  button.addEventListener("click", ()=> call(patient))
+  button.addEventListener("click", ()=> call(lastClickedPatient))
+
 
   function call(patient){
     const callListnames = document.createElement('li')
@@ -66,7 +66,12 @@ const openProfile = (patient) =>{
   }
 
   function deletebuttonFunc(callListnames){
+    const index = array.indexOf(patient.name)
+    if (index > -1) {
+      array.splice(index, 1)
+    }
     callListnames.remove()
+
 }
     
   function handleSubmit(e){
