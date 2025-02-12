@@ -101,101 +101,14 @@
       "appointment": "2025-02-07"
     },
     {
-      "id": "bb67",
-      "name": "rrtrt",
-      "phone_number": "rtyrtyt",
-      "birthday": "2025-02-05",
-      "last_visited": "2025-02-11",
-      "message": "",
+      "id": "b98e",
+      "name": "new name",
+      "phone_number": "234",
+      "birthday": "2025-02-22",
+      "last_visited": "2025-02-21",
+      "message": "sdf",
       "appointment": "",
-      "image_url": ""
-    },
-    {
-      "id": "f3af",
-      "name": "Billy Joel",
-      "phone_number": "5558675999",
-      "birthday": "1978-02-21",
-      "last_visited": "2025-02-04",
-      "message": "Rockstar",
-      "appointment": "",
-      "image_url": ""
-    },
-    {
-      "id": "86c4",
-      "name": "Billy Joel",
-      "phone_number": "5558675999",
-      "birthday": "1978-02-21",
-      "last_visited": "2025-02-04",
-      "message": "Rockstar",
-      "appointment": "",
-      "image_url": ""
-    },
-    {
-      "id": "91a8",
-      "name": "Dolly Parton",
-      "phone_number": "555-925-9259",
-      "birthday": "1969-09-25",
-      "last_visited": "2025-02-10",
-      "message": "Dolly For President",
-      "appointment": ""
-    },
-    {
-      "id": "99fd",
-      "name": "Dolly Parton",
-      "phone_number": "5559259255",
-      "birthday": "1969-09-25",
-      "last_visited": "2025-02-10",
-      "message": "Dolly For President",
-      "appointment": ""
-    },
-    {
-      "id": "2658",
-      "name": "Dolly Parton",
-      "phone_number": "5559259255",
-      "birthday": "1969-09-25",
-      "last_visited": "2025-02-10",
-      "message": "Dolly For President",
-      "appointment": ""
-    },
-    {
-      "id": "bcf6",
-      "name": "Barbie",
-      "phone_number": "(555) 876-5432",
-      "birthday": "1977-07-25",
-      "last_visited": "2024-11-06",
-      "message": "Let's go barbie",
-      "appointment": "",
-      "image_url": ""
-    },
-    {
-      "id": "fd4d",
-      "name": "Ken",
-      "phone_number": "(555) 876-5432",
-      "birthday": "1968-01-25",
-      "last_visited": "2024-12-11",
-      "message": "Come on barbie, lets go party",
-      "appointment": "",
-      "image_url": ""
-    },
-    {
-      "id": "a596",
-      "name": "Ken",
-      "phone_number": "(555) 876-5432",
-      "birthday": "1999-12-25",
-      "last_visited": "2024-10-15",
-      "message": "Mojo Dojo Casa House",
-      "appointment": "",
-      "image_url": ""
-    },
-    {
-      "id": "066f",
-      "name": "sdfd",
-      "phone_number": "132",
-      "birthday": "2025-02-26",
-      "last_visited": "2025-02-22",
-      "message": "",
-      "appointment": "",
-      "image_url": ""
+      "image_url": "./assets/ramen/gyukotsu.jpg"
     }
   ]
 }
