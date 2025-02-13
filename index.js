@@ -157,7 +157,7 @@ displayPatients();
       last_visited:event.target['last-visit'].value,
       message:event.target['message'].value,
       appointment:"",
-      image_url:event.target['image'].value // Doesnt save img. Tried using event.target['image_url'].src
+      //image_url:event.target['image'].value // Doesnt save img. Tried using event.target['image_url'].src
     }
     form.reset
 
