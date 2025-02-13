@@ -48,7 +48,7 @@ const openProfile = (patient) =>{
   lastvisit.textContent= 'Last Date Visited: ' + patient.last_visited
   const message = document.querySelector("#patient-message")
   message.textContent= 'Special Note: ' + patient.message
-  const form = document.querySelector(".patient-appointment")
+  const form = document.querySelector("form.patient-appointment")
 
 
   
