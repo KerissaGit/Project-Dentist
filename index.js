@@ -36,27 +36,22 @@ const openProfile = (patient) =>{
   lastClickedPatient=patient
   patientcurrent=patient
   const image = document.querySelector("#xray-image")
+  image.src=patient.image_url
+  image.alt=patient.name
   const name = document.querySelector("#patient-name")
+  name.textContent = patient.name
   const phone = document.querySelector("#patient-phone")
+  phone.textContent = 'Phone Number: ' + patient.phone_number
   const birthday = document.querySelector("#patient-birthday")
+  birthday.textContent= 'Birthday: ' + patient.birthday
   const lastvisit = document.querySelector("#patient-last-visit")
+  lastvisit.textContent= 'Last Date Visited: ' + patient.last_visited
   const message = document.querySelector("#patient-message")
+  message.textContent= 'Special Note: ' + patient.message
   const form = document.querySelector(".patient-appointment")
 
-  if (patient) {
-    image.src=patient.image_url
-    image.alt=patient.name
-    name.textContent = patient.name
-    phone.textContent = "Phone Number: " + patient.phone_number
-    birthday.textContent= `Birthday:   ${formatDate(patient.birthday)}`
-    lastvisit.textContent= `Last Date Visited:   ${formatDate(patient.last_visited)}`
-    message.textContent= 'Special Note: ' + patient.message
-    form.textContent= `Next Appointment:   ${formatDate(patient.appointment)}`
-  } else {
-    name.textContent = "Select a Patient to View Details"
-  }
 
-  form.addEventListener("submit", handleSubmit)
+  
 
 
   const button = document.querySelector("#call-button")
@@ -65,11 +60,11 @@ const openProfile = (patient) =>{
 
 
   button.addEventListener("click", ()=> call(lastClickedPatient))
-
+  form.addEventListener("submit", handleSubmit)
 
   function call(patient){
     const callListnames = document.createElement('li')
-        callListnames.textContent = `${patient.name}`
+        callListnames.textContent = `${patient.name} ${patient.phone_number}`
         if (!array.includes(patient.name)){
         callList.append(callListnames)
         array.push(patient.name) 
@@ -113,6 +108,7 @@ const openProfile = (patient) =>{
     .catch((error) => console.error("Error updating appointment:", error));
  
   }
+
 
 }
 
